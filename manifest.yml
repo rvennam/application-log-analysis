@@ -2,4 +2,7 @@ applications:
 - name: application-log-analysis
   random-route: true
   memory: 256M
-  command: gunicorn --env DJANGO_SETTINGS_MODULE=PythonDjangoBasicORVDI.settings.production PythonDjangoBasicORVDI.wsgi -b 0.0.0.0:$PORT
+  command: python manage.py runserver 0.0.0.0:$PORT
+  buildpack: https://github.com/cloudfoundry/python-buildpack
+  env: 
+    DISABLE_COLLECTSTATIC: 1

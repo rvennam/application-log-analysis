@@ -31,7 +31,7 @@ def logit(request):
     level=request.POST.get('level', '')
 
     # Log to stdout stream
-    print "Logit: Message:'",message,"' with level:'",level,"'"
+    print("Logit: Message:'",message,"' with level:'",level,"'")
     # Now log to stderr via logger
     if level=="critical":
         logger.critical(message)
@@ -44,14 +44,14 @@ def logit(request):
     elif level=="debug":
         logger.debug(message)
     else:
-        print "No valid combination passed in"
+        print("No valid combination passed in")
     # return message to JavaScript function in index page
     return JsonResponse({'smsg':message})    
 
 def setLogLevel(request):
     loggerlevel=request.POST.get('loggerlevel', '')
     # Log change to stdout
-    print "setLogLevel: Setting to new level'",loggerlevel,"'"
+    print("setLogLevel: Setting to new level'",loggerlevel,"'")
     if loggerlevel=="critical":
         logger.setLevel(logging.CRITICAL)
     elif loggerlevel=="error":
@@ -63,7 +63,7 @@ def setLogLevel(request):
     elif loggerlevel=="debug":
         logger.setLevel(logging.DEBUG)
     else:
-        print "No valid level passed in"
+        print("No valid level passed in")
 
     # return message to JS function
     return HttpResponse("New log level set to "+loggerlevel)
