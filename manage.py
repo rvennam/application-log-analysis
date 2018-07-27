@@ -1,3 +1,10 @@
+# (C) 2017 IBM
+# Author: Henrik Loeser
+#
+# Very short sample app to demonstrate the Log Analytics service on IBM Cloud.
+# It offers a web form to change the log level and to send messages that
+# then are logged.
+
 #!/usr/bin/env python
 import os
 import sys
